@@ -1,0 +1,14 @@
+SELECT
+o.Date order_date,
+pc.CategoryName category_name,
+p.ProdName product_name,
+p.Price product_proce,
+o.Quantityorder_qty,
+(o.Quantity * p.Price) total_sales,
+c.CustomerEmail cust_email,
+c.CustomerCity cust_city
+FROM masterdata.orders o
+LEFT JOIN masterdata.customers c ON o.CustomerID = c.CustomerID
+LEFT JOIN masterdata.products p ON p.ProdNumber = o.ProdNumber
+LEFT JOIN masterdata.productcategory pc ON pc.CategoryID = P.cATEGORY
+order by 1 asc
